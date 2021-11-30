@@ -1,30 +1,29 @@
-const axios = require("axios").default;
-const homeRoute = "https://ben-backend.herokuapp.com";
+var axios = require("axios").default;
+var homeRoute = "http://3.109.185.118:4040";
 
 module.exports = async (endpoints, data) => {
   const requestHandler = async (endpoints, data) => {
-    const options = {
+    var options = {
       method: "POST",
       url: homeRoute + endpoints,
       data: data,
     };
 
-    let result = {};
+    let z;
     await axios
       .request(options)
       .then((response) => {
-        result = response.data;
+        z = response.data;
       })
       .catch((error) => {
         console.error(error);
       });
 
-    return result;
+    return z;
   };
-  
-  
-  console.log(data)
-  const result = await requestHandler("/users/signup", data);
-  //console.log(result)
-  return result;
+  console.log(endpoints,data)
+  const result = await requestHandler(endpoints, data);
+
+  console.log(result)
 };
+

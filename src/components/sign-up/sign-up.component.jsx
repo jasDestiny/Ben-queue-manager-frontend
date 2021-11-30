@@ -20,39 +20,28 @@ class SignUp extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const homeRoute = "http://3.109.185.118:4040"
     const {email,password,city,usertype} = this.state;
     const endpoint = "/users/signup";
     //console.log(email,password,city,usertype)
-    // const result = await request(endpoint, {
-    //   email : 'email@gmail.com',
-    //   password :"password",
-    //   city : 'city',
-    //   usertype : 'usertype'
-    // })
-    const options = {
-      method: "POST",
-      url: homeRoute + endpoint,
-      data: {
-        email:email,
-        password:password,
-        city:city,
-        usertype: usertype
-      },
-    };
+    
+    const result = await request("/users/signup", {
+      email : 'email@gmail.com',
+      password :"password",
+      city : 'city',
+      usertype : 'user'
+    })
+  
 
-    let result = {};
-    await axios
-      .request(options)
-      .then((response) => {
-        result = response.data;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    console.log(result)
 
-    console.log(result);
-  };
+    this.setState({
+      email: "",
+      password: "",
+      city: "",
+      usertype: "user",
+    })
+   
+  }
 
   handleChange = (event) => {
     const { name, value } = event.target;
