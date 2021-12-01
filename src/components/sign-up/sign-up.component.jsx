@@ -25,10 +25,10 @@ class SignUp extends Component {
     //console.log(email,password,city,usertype)
     
     const result = await request("/users/signup", {
-      email : 'email@gmail.com',
-      password :"password",
-      city : 'city',
-      usertype : 'user'
+      email : email,
+      password :password,
+      city : city,
+      usertype : usertype
     })
   
 
