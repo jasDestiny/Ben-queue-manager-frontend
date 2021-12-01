@@ -3,8 +3,7 @@ import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 import "./sign-up.styles.scss";
 
-const request = require("../../utility/utility-functions")
-const axios = require("axios")
+const api = require("../../utility/utility-functions");
 
 class SignUp extends Component {
   constructor(props) {
@@ -19,29 +18,43 @@ class SignUp extends Component {
   }
 
   handleSubmit = async (event) => {
-    event.preventDefault();
-    const {email,password,city,usertype} = this.state;
+    //event.preventDefault();
+    const { email, password, city, usertype } = this.state;
     const endpoint = "/users/signup";
+
+    // const result = await api(endpoint,this.state)
+    // await console.log(result.status)
     //console.log(email,password,city,usertype)
-    
-    const result = await request("/users/signup", {
-      email : 'email@gmail.com',
-      password :"password",
-      city : 'city',
-      usertype : 'user'
-    })
-  
 
-    console.log(result)
+    // const result = await request("/users/signup", {
+    //   email : 'email@gmail.com',
+    //   password :"password",
+    //   city : 'city',
+    //   usertype : 'user'
+    // })
+    //console.log(this.state);
+    //const result = await requestAPI(endpoint,this.state);
+    let url = "http://localhost:4040/users/signup";
+    const requestOptions = {
+      crossDomain: true,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        city: city,
+        usertype: usertype,
+      }),
+    };
 
-    this.setState({
-      email: "",
-      password: "",
-      city: "",
-      usertype: "user",
-    })
-   
-  }
+    fetch(url, requestOptions)
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch((error) => console.log(error));
+  };
 
   handleChange = (event) => {
     const { name, value } = event.target;
