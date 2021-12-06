@@ -33,13 +33,6 @@ class SignUp extends Component {
   
 
     console.log(result)
-
-    this.setState({
-      userid: "",
-      password: "",
-      city: "",
-      usertype: "user",
-    })
    
   }
 
@@ -57,11 +50,11 @@ class SignUp extends Component {
         <span className="title">Sign up here</span>
         <form className="form-control" onSubmit={this.handleSubmit}>
           <FormInput
-            type="text"
+            type="email"
             name="userid"
             value={userid}
             onChange={this.handleChange}
-            label="userid"
+            label="Email"
             required
           />
           <FormInput

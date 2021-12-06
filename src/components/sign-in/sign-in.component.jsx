@@ -37,7 +37,7 @@ class SignIn extends Component {
             type="email"
             value={this.state.userid}
             handleChange={this.handleChange}
-            label="userid"
+            label="Email"
             required
           />
           <FormInput

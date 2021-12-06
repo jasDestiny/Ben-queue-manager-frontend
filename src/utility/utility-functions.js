@@ -1,5 +1,5 @@
 var axios = require("axios").default;
-var homeRoute = "https://ben-backend.herokuapp.com";
+var homeRoute = "http://3.109.185.118:4040";
 
 module.exports = async (endpoints, data) => {
   const requestHandler = async (endpoints, data) => {
