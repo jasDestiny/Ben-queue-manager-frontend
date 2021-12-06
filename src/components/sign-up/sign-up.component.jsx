@@ -11,7 +11,7 @@ class SignUp extends Component {
     super(props);
 
     this.state = {
-      email: "",
+      userid: "",
       password: "",
       city: "",
       usertype: "user",
@@ -20,12 +20,12 @@ class SignUp extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const {email,password,city,usertype} = this.state;
+    const {userid,password,city,usertype} = this.state;
     const endpoint = "/users/signup";
     //console.log(email,password,city,usertype)
     
     const result = await request("/users/signup", {
-      email : email,
+      userid : userid,
       password :password,
       city : city,
       usertype : usertype
@@ -35,7 +35,7 @@ class SignUp extends Component {
     console.log(result)
 
     this.setState({
-      email: "",
+      userid: "",
       password: "",
       city: "",
       usertype: "user",
@@ -50,18 +50,18 @@ class SignUp extends Component {
   };
 
   render() {
-    const { email, password, city } = this.state;
+    const { userid, password, city } = this.state;
     return (
       <div className="sign-up">
         <h2 className="title">I do not have a account</h2>
         <span className="title">Sign up here</span>
         <form className="form-control" onSubmit={this.handleSubmit}>
           <FormInput
-            type="email"
-            name="email"
-            value={email}
+            type="text"
+            name="userid"
+            value={userid}
             onChange={this.handleChange}
-            label="Email"
+            label="userid"
             required
           />
           <FormInput

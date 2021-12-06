@@ -9,7 +9,7 @@ class SignIn extends Component {
     super(props);
 
     this.state = {
-      email: "",
+      userid: "",
       password: "",
     };
   }
@@ -33,11 +33,11 @@ class SignIn extends Component {
 
         <form className="form-control">
           <FormInput
-            name="email"
+            name="userid"
             type="email"
-            value={this.state.email}
+            value={this.state.userid}
             handleChange={this.handleChange}
-            label="Email"
+            label="userid"
             required
           />
           <FormInput
