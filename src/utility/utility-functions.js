@@ -23,7 +23,6 @@ module.exports = async (endpoints, data) => {
   };
   console.log(endpoints,data)
   const result = await requestHandler(endpoints, data);
-
-  console.log(result)
+  return result
 };
 

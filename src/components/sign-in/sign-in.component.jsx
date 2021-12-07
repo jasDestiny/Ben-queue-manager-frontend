@@ -3,6 +3,9 @@ import "./sign-in.styles.scss";
 
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
+import { userAuthData } from "../../data/data";
+
+const request = require("../../utility/utility-functions")
 
 class SignIn extends Component {
   constructor(props) {
@@ -15,11 +18,26 @@ class SignIn extends Component {
   }
 
   handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
+    const path ="/users/login"
+    const {userid,password} = this.state
+    const data = {
+      userid : userid,
+      password : password
+    }
+    const result = await request(path,data)
+    if(result.status === "200"){
+      userAuthData.userid = result.userid
+      userAuthData.authtoken = result.authtoken
+      userAuthData.city = result.city
+    }else{
+      alert("Invalid Credentials")
+    }
     
   };
 
   handleChange = (event) => {
+    event.preventDefault()
     const {name,value } = event.target;
 
     this.setState({ [name]: value });
@@ -27,11 +45,11 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div className="sign-in" onSubmit={this.handleSubmit}>
+      <div className="sign-in">
         <h2>I already have an account</h2>
         <span className="title">Sign in with your email and password</span>
 
-        <form className="form-control">
+        <form className="form-control"  onSubmit={this.handleSubmit} >
           <FormInput
             name="userid"
             type="email"
@@ -49,7 +67,7 @@ class SignIn extends Component {
             required
           />
           <div className="buttons">
-            <CustomButton>Sign in</CustomButton>
+            <CustomButton type="submit">Sign in</CustomButton>
           </div>
         </form>
       </div>

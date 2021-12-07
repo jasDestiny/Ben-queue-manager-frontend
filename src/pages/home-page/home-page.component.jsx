@@ -3,6 +3,8 @@ import CardList from "../../components/card-list/card-list.component";
 import SearchBox from "../../components/search-box/search-box.component";
 import "./home-page.styles.css";
 
+import { userAuthData } from "../../data/data";
+
 const request = require("../../utility/utility-functions");
 
 class Home extends React.Component {
