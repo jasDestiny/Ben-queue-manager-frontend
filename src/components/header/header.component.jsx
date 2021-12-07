@@ -26,23 +26,12 @@ function Header() {
                 <Link className="nav-link" to="/services">Services</Link>
               </li>
               <li class="nav-item">
-                <Link className="nav-link" to="/services/providers">Service Providers</Link>
+                <Link className="nav-link" to="/services/providers">Providers</Link>
               </li>
               <li class="nav-item">
-                <Link className="nav-link" to ="/settings">Settings</Link>
+                <Link className="nav-link" to ="/signin">Sign In</Link>
               </li>
             </ul>
-            <form class="d-flex">
-              <input
-                class="form-control me-2 searchWidth"
-                type="search"
-                placeholder="Search service providers"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>

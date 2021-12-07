@@ -4,7 +4,6 @@ import CustomButton from "../custom-button/custom-button.component";
 import "./sign-up.styles.scss";
 
 const request = require("../../utility/utility-functions")
-const axios = require("axios")
 
 class SignUp extends Component {
   constructor(props) {

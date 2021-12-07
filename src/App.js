@@ -15,7 +15,6 @@ function App() {
         <Route exact path="/services" component={Home} />
         <Route exact path="/services/providers" component={Home} />
         <Route exact path="/add/services" component={Home} />
-        <Route exact path="/settings" component={Home} />
         <Route exact path="/signin" component={SignInAndSignUp} />
       </Switch>
     </div>
