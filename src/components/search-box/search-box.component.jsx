@@ -3,7 +3,7 @@ import "./search-box.styles.scss";
 
 function SearchBox({ handleChange }) {
   return (
-    <form>
+    <form className='search-box'>
       <input
         class="search"
         type="search"
@@ -11,7 +11,7 @@ function SearchBox({ handleChange }) {
         aria-label="Search"
         onChange={handleChange}
       />
-      <button class="btn btn-outline-success" type="submit">
+      <button class="btn btn-outline-success btn-search" type="submit">
         Search
       </button>
     </form>

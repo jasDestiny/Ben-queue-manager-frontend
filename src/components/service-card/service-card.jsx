@@ -1,15 +1,19 @@
 import React from "react";
 import "./service-card.styles.scss";
 
-function ServiceCard() {
+function ServiceCard({providerName,providerCity,description,location}) {
   return (
     //View VQ stats modal
     <div>
       {/* The card */}
       <div class="card-body service-card">
-        <h5 class="card-title">Service provider name comes here</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Service provider city</h6>
-        <p class="card-text">Description</p>
+        <h5 class="card-title">{providerName}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <a href={`https://www.google.com/maps/search/${location}/@+${location}17z`} target="_blank">📍
+          {providerCity}
+          </a>
+        </h6>
+        <p class="card-text">{description}</p>
         <button
           className="btn btn-primary card-link"
           data-toggle="modal"
@@ -20,7 +24,7 @@ function ServiceCard() {
         <button className="btn btn-success card-link">Join VQ</button>
       </div>
 
-      <div
+      {/* <div
         class="modal"
         id="exampleModal"
         tabindex="-1"
@@ -58,7 +62,7 @@ function ServiceCard() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

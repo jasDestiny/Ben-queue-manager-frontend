@@ -3,35 +3,29 @@ import CardList from "../../components/card-list/card-list.component";
 import SearchBox from "../../components/search-box/search-box.component";
 import "./home-page.styles.css";
 
-import { userAuthData } from "../../data/data";
 
 const request = require("../../utility/utility-functions");
 
 class Home extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       services: [],
-      searchField : ""
     };
   }
 
-  handleChange = ({target,value}) => {
-    this.setState({
-      searchField : value
-    })
-  };
-
   async componentDidMount() {
-    const path = "/users/vq/vqcitysearch";
+    const path = "/users/vq/allcities";
+
+    const data = JSON.parse(localStorage.getItem("userAuthData"))
+
     try {
       const result = await request(path, {
-        userid: "",
+        userid: data.userid,
         city: "",
-        authtoken: "",
+        authtoken: data.authtoken,
       });
-      console.log(result);
       this.setState({
         services: result,
       });
@@ -43,8 +37,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <SearchBox handleChange={this.handleChange} />
-        <CardList />
+        <CardList services = {this.state.services} searchInput = {this.props.searchInput} />
       </div>
     );
   }

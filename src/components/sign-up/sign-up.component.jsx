@@ -3,7 +3,7 @@ import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 import "./sign-up.styles.scss";
 
-const request = require("../../utility/utility-functions")
+const request = require("../../utility/utility-functions");
 
 class SignUp extends Component {
   constructor(props) {
@@ -18,27 +18,33 @@ class SignUp extends Component {
   }
 
   handleSubmit = async (event) => {
-    console.log("handle submit works");
+    //console.log("handle submit works");
     event.preventDefault();
-    const {userid,password,city,usertype} = this.state;
-    const endpoint = "/users/signup";
+    const { userid, password, city, usertype } = this.state;
     //console.log(email,password,city,usertype)
-    
+
     const result = await request("/users/signup", {
-      userid : userid,
-      password :password,
-      city : city,
-      usertype : usertype
-    })
-  
-    console.log(result)
-    if(result.status === 'Created Successfully'){
-      this.props.handleSignIn(true)
-    }else{
-      alert("This email id is already taken")
+      userid: userid,
+      password: password,
+      city: city,
+      usertype: usertype,
+    });
+
+   // console.log(result);
+    if (result.status === "200") {
+      localStorage.setItem(
+        "userAuthData",
+        JSON.stringify({
+          userid: userid,
+          city: city,
+          authtoken: result.tokenval,
+        })
+      );
+      this.props.handleSignIn(true);
+    } else {
+      alert("This email id is already taken");
     }
-   
-  }
+  };
 
   handleChange = (event) => {
     const { name, value } = event.target;

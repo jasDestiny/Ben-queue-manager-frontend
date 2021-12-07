@@ -3,7 +3,7 @@ import "./header.styles.scss";
 
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({userSigned,handleSignOut}) {
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,7 +29,14 @@ function Header() {
                 <Link className="nav-link" to="/services/providers">Providers</Link>
               </li>
               <li class="nav-item">
-                <Link className="nav-link" to ="/signin">Sign In</Link>
+                {
+                  userSigned?(<Link className="nav-link" onClick={()=>{
+                      handleSignOut()
+                  }} to="/">
+                    Sign Out
+                  </Link>):(<Link className="nav-link" to ="/signin">Sign In</Link>)
+                }
+                
               </li>
             </ul>
           </div>

@@ -6,12 +6,14 @@ import SignInAndSignUp from "./pages/sign-in-sign-up-page/sign-in-sign-up-page.c
 import { Route, Switch, Redirect } from "react-router";
 import Header from "./components/header/header.component";
 import React from "react";
+import SearchBox from "./components/search-box/search-box.component";
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       userSigned: null,
+      searchInput: ""
     };
   }
 
@@ -19,12 +21,26 @@ class App extends React.Component {
     this.setState({ userSigned: boolean });
   };
 
+  handleSignOut = () => {
+    this.setState({ userSigned: null });
+  };
+
+  handleChange = (e) => {
+    this.setState({searchInput : e.target.value})
+  }
+
   render() {
     return (
       <div className="App">
-        <Header />
+        <div className="navigation">
+          <Header
+            userSigned={this.state.userSigned}
+            handleSignOut={this.handleSignOut}
+          />
+          <SearchBox handleChange={this.handleChange} />
+        </div>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={()=> <Home searchInput={this.state.searchInput}/>} />
           <Route exact path="/services" component={Home} />
           <Route exact path="/services/providers" component={Home} />
           <Route exact path="/add/services" component={Home} />
@@ -32,7 +48,11 @@ class App extends React.Component {
             exact
             path="/signin"
             render={() =>
-              this.state.userSigned ? <Redirect to="/" /> : <SignInAndSignUp handleSignIn={this.handleSignIn}/>
+              this.state.userSigned ? (
+                <Redirect to="/" />
+              ) : (
+                <SignInAndSignUp handleSignIn={this.handleSignIn} />
+              )
             }
           />
         </Switch>
