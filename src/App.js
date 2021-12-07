@@ -32,7 +32,7 @@ class App extends React.Component {
             exact
             path="/signin"
             render={() =>
-              this.state.user ? <Redirect to="/" /> : <SignInAndSignUp handleSignIn={this.handleSignIn}/>
+              this.state.userSigned ? <Redirect to="/" /> : <SignInAndSignUp handleSignIn={this.handleSignIn}/>
             }
           />
         </Switch>

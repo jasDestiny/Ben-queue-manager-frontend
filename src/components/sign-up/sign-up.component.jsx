@@ -32,7 +32,7 @@ class SignUp extends Component {
     })
   
     console.log(result)
-    if(result.status === "200"){
+    if(result.status === 'Created Successfully'){
       this.props.handleSignIn(true)
     }else{
       alert("This email id is already taken")
@@ -41,7 +41,6 @@ class SignUp extends Component {
   }
 
   handleChange = (event) => {
-    event.preventDefault()
     const { name, value } = event.target;
 
     this.setState({ [name]: value });
