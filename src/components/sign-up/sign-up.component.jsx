@@ -31,7 +31,9 @@ class SignUp extends Component {
       usertype : usertype
     })
   
-    console.log(result)
+    console.log("result:",result)
+
+    localStorage.setItem('signUpResult', JSON.stringify(result));
     if(result.status === "200"){
       this.props.handleSignIn(true)
     }else{
