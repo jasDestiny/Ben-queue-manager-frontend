@@ -1,18 +1,20 @@
 import React from "react";
+import "./service-card.styles.scss";
 
-const serviceCard=()=>{
-
-    return(
-    <div class="card cardServices">
-        <div class="card-body">
-            <h5 class="card-title">Service provider name comes here</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Service provider city</h6>
-            <p class="card-text">Description</p>
-            <a href="#" class="card-link">View VQ stats</a>
-            <a href="#" class="card-link">Join VQ</a>
-        </div>
-        </div>
-    )
+function ServiceCard() {
+  return (
+    <div class="card-body service-card">
+      <h5 class="card-title">Service provider name comes here</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Service provider city</h6>
+      <p class="card-text">Description</p>
+      <button className="btn btn-primary card-link">
+          View VQ stats
+      </button>
+      <button className="btn btn-success card-link">
+          Join VQ
+      </button>
+    </div>
+  );
 }
 
-export default serviceCard;
+export default ServiceCard;
