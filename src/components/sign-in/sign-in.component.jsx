@@ -30,6 +30,9 @@ class SignIn extends Component {
       userAuthData.userid = result.userid
       userAuthData.authtoken = result.authtoken
       userAuthData.city = result.city
+      console.log("signed in")
+      this.props.handleSignIn(true)
+
     }else{
       alert("Invalid Credentials")
     }

@@ -31,8 +31,12 @@ class SignUp extends Component {
       usertype : usertype
     })
   
-
     console.log(result)
+    if(result.status === "200"){
+      this.props.handleSignIn(true)
+    }else{
+      alert("This email id is already taken")
+    }
    
   }
 
