@@ -19,6 +19,7 @@ class SignUp extends Component {
   }
 
   handleSubmit = async (event) => {
+    console.log("handle submit works");
     event.preventDefault();
     const {userid,password,city,usertype} = this.state;
     const endpoint = "/users/signup";

@@ -9,7 +9,10 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/services" component={Home} />
+        <Route exact path="/serviceProviders" component={Home} />
+        <Route exact path="/addServices" component={Home} />
+        <Route exact path="/settings" component={Home} />
         <Route exact path="/signin" component={SignInAndSignUp} />
       </Switch>
     </div>

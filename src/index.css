@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.searchWidth{
+  width:250px
+}
+
+.cardServices{
+  width: 18rem;
+  margin: 8px;
+  box-shadow: 8px 8px 8px #666666;
+}
