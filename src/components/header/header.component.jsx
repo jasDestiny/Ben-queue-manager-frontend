@@ -19,7 +19,7 @@ function Header({userSigned,handleSignOut}) {
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <Link className="nav-link" to ="/">Queue Manager</Link>
+          <Link className="nav-link" to ="/">Project Repository</Link>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               {/* <li class="nav-item">

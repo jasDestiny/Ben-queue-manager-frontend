@@ -1,5 +1,5 @@
 var axios = require("axios").default;
-var homeRoute = "http://3.109.185.118:4040";
+var homeRoute = "http://localhost:3030";
 
 module.exports = async (endpoints, data) => {
   const requestHandler = async (endpoints, data) => {
