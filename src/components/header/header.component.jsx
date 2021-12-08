@@ -22,12 +22,12 @@ function Header({userSigned,handleSignOut}) {
           <Link className="nav-link" to ="/">Queue Manager</Link>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+              {/* <li class="nav-item">
                 <Link className="nav-link" to="/">Services</Link>
               </li>
               <li class="nav-item">
                 <Link className="nav-link" to="/">Providers</Link>
-              </li>
+              </li> */}
               <li class="nav-item">
                 {
                   userSigned?(<Link className="nav-link" onClick={()=>{

@@ -11,9 +11,6 @@ function SearchBox({ handleChange }) {
         aria-label="Search"
         onChange={handleChange}
       />
-      <button class="btn btn-outline-success btn-search" type="submit">
-        Search
-      </button>
     </form>
   );
 }

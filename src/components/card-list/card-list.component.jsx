@@ -1,6 +1,8 @@
 import React from "react";
 import ServiceCard from "../service-card/service-card";
 
+import './card-list.styles.scss'
+
 function CardList({ services,searchInput }) {
   console.log(services);
   const filteredServices = searchInput===""?services: services.filter((service)=>(
@@ -9,9 +11,9 @@ function CardList({ services,searchInput }) {
 
   return (
     <div>
-      <div className="row">
+      <div className="card-list">
         {filteredServices.map((service) => (
-          <div className="col">
+          <div className="">
             <ServiceCard
               key = {service._id}
               providerName={service.placename}

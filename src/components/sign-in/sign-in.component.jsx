@@ -3,7 +3,6 @@ import "./sign-in.styles.scss";
 
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
-import { userAuthData } from "../../data/data";
 
 const request = require("../../utility/utility-functions")
 
@@ -26,10 +25,16 @@ class SignIn extends Component {
       password : password
     }
     const result = await request(path,data)
+    console.log(result)
     if(result.status === "200"){
-      userAuthData.userid = result.userid
-      userAuthData.authtoken = result.authtoken
-      userAuthData.city = result.city
+      localStorage.setItem(
+        "userAuthData",
+        JSON.stringify({
+          userid: userid,
+          city: result.city,
+          authtoken: result.authtoken,
+        })
+      );
       console.log("signed in")
       this.props.handleSignIn(true)
 

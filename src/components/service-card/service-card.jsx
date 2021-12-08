@@ -1,7 +1,27 @@
 import React from "react";
 import "./service-card.styles.scss";
 
-function ServiceCard({providerName,providerCity,description,location}) {
+const request = require("../../utility/utility-functions");
+
+function ServiceCard({ providerName, providerCity, description, location }) {
+  const getCrowdStats = async () => {
+    
+  };
+
+
+  const joinVQ = async () => {
+
+    const userAuthData = JSON.parse(localStorage.getItem("userAuthData"));
+
+    const result = await request("/users/vq/entervq", {
+      userid: userAuthData.userid,
+      placename: providerName,
+      authtoken: userAuthData.authtoken,
+    });
+
+    console.log(result)
+  };
+
   return (
     //View VQ stats modal
     <div>
@@ -9,8 +29,12 @@ function ServiceCard({providerName,providerCity,description,location}) {
       <div class="card-body service-card">
         <h5 class="card-title">{providerName}</h5>
         <h6 class="card-subtitle mb-2 text-muted">
-          <a href={`https://www.google.com/maps/search/${location}/@+${location}17z`} target="_blank">📍
-          {providerCity}
+          <a
+            href={`https://www.google.com/maps/search/${location}/@+${location}17z`}
+            target="_blank"
+          >
+            📍
+            {providerCity}
           </a>
         </h6>
         <p class="card-text">{description}</p>
@@ -18,10 +42,13 @@ function ServiceCard({providerName,providerCity,description,location}) {
           className="btn btn-primary card-link"
           data-toggle="modal"
           data-target="#exampleModal"
+          onClick={getCrowdStats}
         >
           Crowd stats
         </button>
-        <button className="btn btn-success card-link">Join VQ</button>
+        <button className="btn btn-success card-link" onClick={joinVQ}>
+          Join VQ
+        </button>
       </div>
 
       {/* <div
