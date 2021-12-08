@@ -23,10 +23,10 @@ function Header({userSigned,handleSignOut}) {
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <Link className="nav-link" to="/services">Services</Link>
+                <Link className="nav-link" to="/">Services</Link>
               </li>
               <li class="nav-item">
-                <Link className="nav-link" to="/services/providers">Providers</Link>
+                <Link className="nav-link" to="/">Providers</Link>
               </li>
               <li class="nav-item">
                 {

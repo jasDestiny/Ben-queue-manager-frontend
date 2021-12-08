@@ -3,7 +3,7 @@ import ServiceCard from "../service-card/service-card";
 
 function CardList({ services,searchInput }) {
   console.log(services);
-  const filteredServices = services.filter((service)=>(
+  const filteredServices = searchInput===""?services: services.filter((service)=>(
     service.city.toLowerCase().includes(searchInput.toLowerCase()) 
   ))
 

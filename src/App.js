@@ -41,9 +41,6 @@ class App extends React.Component {
         </div>
         <Switch>
           <Route exact path="/" render={()=> <Home searchInput={this.state.searchInput}/>} />
-          <Route exact path="/services" component={Home} />
-          <Route exact path="/services/providers" component={Home} />
-          <Route exact path="/add/services" component={Home} />
           <Route
             exact
             path="/signin"
