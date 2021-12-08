@@ -7,7 +7,7 @@ function SearchBox({ handleChange }) {
       <input
         class="search"
         type="search"
-        placeholder="Search service providers"
+        placeholder="Search projects"
         aria-label="Search"
         onChange={handleChange}
       />
