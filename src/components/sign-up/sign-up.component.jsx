@@ -12,22 +12,22 @@ class SignUp extends Component {
     this.state = {
       userid: "",
       password: "",
-      org: "",
-      orgtype: "",
+      city: "",
+      usertype: "user",
     };
   }
 
   handleSubmit = async (event) => {
     //console.log("handle submit works");
     event.preventDefault();
-    const { userid, password, org, orgtype } = this.state;
+    const { userid, password, city, usertype } = this.state;
     //console.log(email,password,city,usertype)
 
     const result = await request("/users/signup", {
       userid: userid,
       password: password,
-      org: org,
-      orgtype: orgtype,
+      city: city,
+      usertype: usertype,
     });
 
    // console.log(result);
@@ -36,8 +36,7 @@ class SignUp extends Component {
         "userAuthData",
         JSON.stringify({
           userid: userid,
-          org: org,
-          orgtype: orgtype,
+          city: city,
           authtoken: result.tokenval,
         })
       );
@@ -54,7 +53,7 @@ class SignUp extends Component {
   };
 
   render() {
-    const { userid, password, org, orgtype } = this.state;
+    const { userid, password, city } = this.state;
     return (
       <div className="sign-up">
         <h2 className="title">I do not have a account</h2>
@@ -68,7 +67,14 @@ class SignUp extends Component {
             label="Email"
             required
           />
-          
+          <FormInput
+            type="text"
+            name="city"
+            value={city}
+            onChange={this.handleChange}
+            label="City"
+            required
+          />
           <FormInput
             type="password"
             name="password"
@@ -77,25 +83,6 @@ class SignUp extends Component {
             label="Password"
             required
           />
-
-          <FormInput
-            type="text"
-            name="org"
-            value={org}
-            onChange={this.handleChange}
-            label="org"
-            required
-          />
-
-          <FormInput
-            type="text"
-            name="orgtype"
-            value={orgtype}
-            onChange={this.handleChange}
-            label="orgtype"
-            required
-          />
-
 
           <CustomButton type="submit">Sign up</CustomButton>
         </form>
