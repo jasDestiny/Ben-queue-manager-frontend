@@ -19,8 +19,7 @@ function ServiceCard({ providerName, providerCity, description, location }) {
       authtoken: userAuthData.authtoken,
     });
 
-    console.log(result);
-    alert(`Your queue position is ${result.position}`);
+    console.log(result)
   };
 
   return (
